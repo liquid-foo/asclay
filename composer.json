@@ -1,0 +1,17 @@
+{
+    "name": "syhol/asclay",
+    "description": "Some sort of terminal thing",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Simon Holloway",
+            "email": "simon@syhol.io"
+        }
+    ],
+    "autoload": {
+        "psr-4" : {
+            "Syhol\\Asclay\\": "src"
+        }
+    }
+}
