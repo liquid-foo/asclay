@@ -15,7 +15,7 @@ interface Cursor
     public function setY($rows);
     public function moveTo($cols, $rows);
 
-    // Set Position
+    // Get Position
     public function getX();
     public function getY();
     public function getPosition();
