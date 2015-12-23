@@ -13,7 +13,7 @@ interface Cursor
     // Absolute Movement
     public function setX($cols);
     public function setY($rows);
-    public function moveTo($cols, $rows);
+    public function setPosition($cols, $rows);
 
     // Get Position
     public function getX();
