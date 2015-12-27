@@ -11,13 +11,13 @@ interface Cursor
     public function moveDown($rows);
 
     // Absolute Movement
-    public function setX($cols);
-    public function setY($rows);
+    public function setCol($cols);
+    public function setRow($rows);
     public function setPosition($cols, $rows);
 
     // Get Position
-    public function getX();
-    public function getY();
+    public function getCol();
+    public function getRow();
     public function getPosition();
 
     // Visiblity
