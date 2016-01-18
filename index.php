@@ -87,4 +87,16 @@ for ($x = $height; $x >= 0; $x--) {
 
 sleep(5);
 
+
+$terminal->write("listening: ");
+$result = $terminal->read(8);
+$terminal->writeLine("");
+$terminal->writeLine("You wrote phrase: $result");
+$line = $terminal->readLine();
+$terminal->writeLine("You wrote line: $line");
+$page = $terminal->readAll();
+$terminal->writeLine("You wrote page: $page");
+
+
+
 $terminal->restoreDefaultBuffer();

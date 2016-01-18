@@ -73,12 +73,12 @@ class Terminal implements TerminalContract
     public function enableEcho(){return $this->cursor->enableEcho(); }
     public function disableEcho(){return $this->cursor->disableEcho(); }
 
-    public function write($output){}
-    public function writeLine($output){}
+    public function write($output){ return $this->writer->write($output); }
+    public function writeLine($output){ return $this->writer->writeLine($output); }
 
-    public function read($size){}
-    public function readAll(){}
-    public function readLine(){}
+    public function read($size){ return $this->reader->read($size); }
+    public function readAll(){ return $this->reader->readAll(); }
+    public function readLine(){ return $this->reader->readLine(); }
 
     public function getFlags(){}
     public function getFlag($name, $default = null){}
