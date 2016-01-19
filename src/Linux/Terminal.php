@@ -65,9 +65,6 @@ class Terminal implements TerminalContract
     public function setCol($cols){return $this->cursor->setCol($cols); }
     public function setRow($rows){return $this->cursor->setRow($rows); }
     public function setPosition($cols, $rows){return $this->cursor->setPosition($cols, $rows); }
-    public function getCol(){return $this->cursor->getCol(); }
-    public function getRow(){return $this->cursor->getRow(); }
-    public function getPosition(){return $this->cursor->getPosition(); }
     public function hide(){return $this->cursor->hide(); }
     public function show(){return $this->cursor->show(); }
     public function enableEcho(){return $this->cursor->enableEcho(); }
