@@ -50,24 +50,6 @@ class Cursor implements CursorContract
         echo "\033[${row};${col}f";
     }
 
-    public function getCol()
-    {
-        $position = $this->getPosition();
-        return array_shift($position);
-    }
-
-    public function getRow()
-    {
-        $position = $this->getPosition();
-        return array_pop($position);
-    }
-
-    public function getPosition()
-    {
-        $file = __DIR__ . '/../../bin/get-cursor-position.sh';
-        return array_map('intval', explode(',', `$file`));
-    }
-
     public function hide()
     {
         echo "\033[?25l";
