@@ -90,6 +90,6 @@ class Terminal implements TerminalContract
     public function getHeight(){ return (int)`tput lines`; }
     public function getWidth(){ return (int)`tput cols`; }
     public function getSize(){ return [$this->getWidth(), $this->getHeight()]; }
-    public function clear(){}
+    public function clear(){ echo `clear`; }
     public function __destruct(){ echo $this->restoreOnDestruct ? `tput rmcup` : ''; }
 }
