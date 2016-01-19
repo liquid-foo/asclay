@@ -15,11 +15,6 @@ interface Cursor
     public function setRow($rows);
     public function setPosition($cols, $rows);
 
-    // Get Position
-    public function getCol();
-    public function getRow();
-    public function getPosition();
-
     // Visiblity
     public function hide();
     public function show();
