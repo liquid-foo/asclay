@@ -6,18 +6,51 @@ use Syhol\Asclay\Window as WindowContract;
 
 class Window implements WindowContract
 {
-    // Set the Window Title
-    public function setTitle($title){}
+    /**
+     * @var bool
+     */
+    private $restoreOnDestruct = false;
 
-    // Alternate Screen Buffer
-    public function openAlternateBuffer($restoreOnDestruct = true){}
-    public function restoreDefaultBuffer(){}
+    public function setTitle($title)
+    {
+        echo "\033]0;${title}\033\\";
+    }
 
-    // Window Size in Rows and Columns
-    public function getHeight(){}
-    public function getWidth(){}
-    public function getSize(){}
+    public function openAlternateBuffer($restoreOnDestruct = true)
+    {
+        $this->restoreOnDestruct = $restoreOnDestruct;
+        echo `tput smcup`;
+    }
 
-    // Utility
-    public function clear(){}
+    public function restoreDefaultBuffer()
+    {
+        echo `tput rmcup`;
+    }
+
+    public function getHeight()
+    {
+        return (int)`tput lines`;
+    }
+
+    public function getWidth()
+    {
+        return (int)`tput cols`;
+    }
+
+    public function getSize()
+    {
+        return [$this->getWidth(), $this->getHeight()];
+    }
+
+    public function clear()
+    {
+        echo `clear`;
+    }
+
+    public function __destruct()
+    {
+        if ($this->restoreOnDestruct) {
+            echo `tput rmcup`;
+        }
+    }
 }

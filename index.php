@@ -13,16 +13,6 @@ $terminal->setTitle('Yo');
 $height = $terminal->getHeight();
 $width = $terminal->getWidth();
 
-function print_cords(Terminal $terminal)
-{
-    list($col, $row) = $terminal->getPosition();
-
-    $height = $terminal->getHeight();
-    $terminal->setPosition(0, $height);
-    echo "$col:$row";
-
-    $terminal->setPosition($col, $row);
-}
 //
 //$terminal->setPosition(5, 5);
 //echo "@";
@@ -45,7 +35,7 @@ function print_cords(Terminal $terminal)
 //die();
 
 $modifier = 0;
-for ($x = 0; $x <= $height; $x++) {
+for ($x = 1; $x <= $height; $x++) {
     $modifier++;
     for ($i = 0; $i <= $width; $i = $i + $modifier) {
         $terminal->setPosition($i, $x);
@@ -55,9 +45,9 @@ for ($x = 0; $x <= $height; $x++) {
 }
 
 $modifier = 0;
-for ($x = 0; $x <= $height; $x++) {
+for ($x = 1; $x <= $height; $x++) {
     $modifier++;
-    for ($i = $width; $i >= 0; $i = $i - $modifier) {
+    for ($i = $width; $i > 0; $i = $i - $modifier) {
         $terminal->setPosition($i, $x);
         echo "*";
         usleep(500);
@@ -65,9 +55,9 @@ for ($x = 0; $x <= $height; $x++) {
 }
 
 $modifier = 0;
-for ($x = $height; $x >= 0; $x--) {
+for ($x = $height; $x > 0; $x--) {
     $modifier++;
-    for ($i = $width; $i >= 0; $i = $i - $modifier) {
+    for ($i = $width; $i > 0; $i = $i - $modifier) {
         $terminal->setPosition($i, $x);
         echo "*";
         usleep(500);
@@ -75,7 +65,7 @@ for ($x = $height; $x >= 0; $x--) {
 }
 
 $modifier = 0;
-for ($x = $height; $x >= 0; $x--) {
+for ($x = $height; $x > 0; $x--) {
     $modifier++;
     for ($i = 0; $i <= $width; $i = $i + $modifier) {
         $terminal->setPosition($i, $x);
@@ -84,16 +74,14 @@ for ($x = $height; $x >= 0; $x--) {
     }
 }
 
-
-sleep(5);
-
-
-$terminal->write("listening: ");
+$terminal->setPosition(0, 0);
+$terminal->write("listening for 8 chars: ");
 $result = $terminal->read(8);
-$terminal->writeLine("");
 $terminal->writeLine("You wrote phrase: $result");
+$terminal->write("listening for end of line: ");
 $line = $terminal->readLine();
 $terminal->writeLine("You wrote line: $line");
+$terminal->write("listening for end of file: ");
 $page = $terminal->readAll();
 $terminal->writeLine("You wrote page: $page");
 

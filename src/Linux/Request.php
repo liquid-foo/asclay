@@ -13,6 +13,6 @@ class Request implements RequestContract
 
     // Arguments
     public function getArguments(){}
-    public function getArgument($name, $default = null){}
-    public function hasArgument($name){}
+    public function getArgument($index, $default = null){}
+    public function hasArgument($index){}
 }

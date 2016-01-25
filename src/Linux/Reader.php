@@ -16,19 +16,24 @@ class Reader implements ReaderContract
         $this->resource = $resource;
     }
 
+    public function readChar()
+    {
+        return fgetc($this->resource);
+    }
+
     public function read($size)
     {
         return fread($this->resource, $size);
     }
 
-    public function readAll()
-    {
-        return stream_get_contents($this->resource);
-    }
-
     public function readLine()
     {
         return fgets($this->resource);
+    }
+
+    public function readAll()
+    {
+        return stream_get_contents($this->resource);
     }
 
     public function __destruct()

@@ -5,19 +5,28 @@ namespace Syhol\Asclay;
 interface Cursor
 {
     // Relative Movement
-    public function moveLeft($cols);
-    public function moveRight($cols);
-    public function moveUp($rows);
-    public function moveDown($rows);
+    public function moveLeft($cols = 1);
+    public function moveRight($cols = 1);
+    public function moveUp($rows = 1);
+    public function moveDown($rows = 1);
 
     // Absolute Movement
-    public function setCol($cols);
-    public function setRow($rows);
-    public function setPosition($cols, $rows);
+    public function setPosition($col, $row);
+    public function setColumn($col);
+    public function setRow($row);
+
+    // Get Location
+    public function getPosition();
+    public function getColumn();
+    public function getRow();
 
     // Visiblity
     public function hide();
     public function show();
+
+    // Save / Restore position
+    public function savePosition();
+    public function restorePosition();
 
     // Echo Functionality
     public function enableEcho();
